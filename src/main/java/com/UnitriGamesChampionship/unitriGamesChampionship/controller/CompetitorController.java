@@ -19,7 +19,8 @@ public class CompetitorController {
 
     @RequestMapping("/new")
     public ModelAndView newCompetitor(){
-        ModelAndView mv=new ModelAndView("NewCompetitor");
+        ModelAndView mv=new ModelAndView("Cadastro");
+        mv.addObject(new Competitor());
         return mv;
     }
 

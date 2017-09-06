@@ -1,6 +1,7 @@
 package com.UnitriGamesChampionship.unitriGamesChampionship.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
@@ -11,6 +12,27 @@ import java.util.ListIterator;
  */
 @Entity
 public class Team {
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public List<Competitor> getCompetitors() {
+        return competitors;
+    }
+
+    public void setCompetitors(List<Competitor> competitors) {
+        this.competitors = competitors;
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -132,5 +154,6 @@ public class Team {
             return null;
         }
     };
+
 
 }

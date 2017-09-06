@@ -69,6 +69,11 @@ public class Competitor {
         this.game = game;
     }
 
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
