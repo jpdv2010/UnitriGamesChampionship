@@ -29,6 +29,14 @@ public class Team {
         this.competitors = competitors;
     }
 
+    public boolean isOpen() {
+        return isOpen;
+    }
+
+    public void setOpen(boolean open) {
+        isOpen = open;
+    }
+
     @Override
     public int hashCode() {
         return super.hashCode();
@@ -38,7 +46,7 @@ public class Team {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @OneToMany
-    List<Competitor> competitors=new List<Competitor>() {
+    private List<Competitor> competitors=new List<Competitor>() {
         @Override
         public int size() {
             return 0;
@@ -155,5 +163,7 @@ public class Team {
         }
     };
 
+
+    private boolean isOpen=false;
 
 }

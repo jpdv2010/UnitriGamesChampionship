@@ -3,37 +3,73 @@
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <title>Unitri Games Championship</title>
+    <link href='http://fonts.googleapis.com/css?family=Oswald:400,300' rel='stylesheet' type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Abel|Satisfy' rel='stylesheet' type='text/css' />
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="../static/css/style.css" rel="stylesheet" type="text/css" media="screen" />
     <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
-    <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all" />
 </head>
-<body>
-<form>
-    <div class="form-group">
-        <label for="exampleInputEmail1">Email address</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"/>
-        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+<div id="header-wrapper-2">
+    <div id="header" class="container">
+        <div id="logo">
+            <h1><a href="#">Unitri Games Championship</a></h1>
+        </div>
+        <div id="menu">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li class="current_page_item"><a href="#">Cadastre-se</a></li>
+                <li><a href="#">Sobre..</a></li>
+            </ul>
+        </div>
     </div>
-    <div class="form-group">
-        <label for="exampleInputPassword1">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"/>
+</div>
+
+<div id="page">
+    <div class="post">
+        <h2 class="title"><a href="#">Digite seus dados!</a></h2>
+        <div class="entry">
+            <div class="formulario">
+                <form class="form-hotizontal" method="POST" action="/competitor" th:object="${competitor}">
+                    <div class="form-group">
+                        <label for="inputName">Nome</label>
+                        <input type="text" class="form-control" id="inputName" aria-describedby="emailHelp" placeholder="Enter email" name="name"/>
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Example select</label>
+                        <select class="form-control" id="exampleFormControlSelect1">
+                            <option th:each="game : ${allGames}"
+                                    th:value="${allGames}" th:text="${game.descricao}"></option>
+                        </select>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input"/>
+                            Check me out
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
     </div>
-    <div class="form-group">
-        <label for="exampleFormControlSelect1">Example select</label>
-        <select class="form-control" id="exampleFormControlSelect1">
-            <option th:each="game : ${allGames}"
-                    th:value="${allGames}" th:text="${game.descricao}"></option>
-        </select>
-    </div>
-    <div class="form-check">
-        <label class="form-check-label">
-            <input type="checkbox" class="form-check-input"/>
-            Check me out
-        </label>
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+</div>
+
+
+<div id="footer">
+    <p>&copy; UnitriGamesChampionship. All rights reserved.</p>
+</div>
 </body>
 
 </html>
